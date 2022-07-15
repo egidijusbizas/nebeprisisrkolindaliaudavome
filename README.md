@@ -1,13 +1,22 @@
 # Scroller
 This is a minimalist gallery application with infinite scroll capability using the [Unsplash API](https://unsplash.com/developers).
 
-The first iteration is built using `create-react-app`.
+# Roadmap
+
+v1 -> create a functioning app, add routing/pages, add state management with Context API.
+
+v2 -> use typescript.
+
+v3 -> tests.
+
+
 
 # Setup steps
 
-`npm install`
-The API functionality depends on the presence of environement variables
-`REACT_APP_UNSPLASH_ACCESS_KEY` may set up this in the `.env` file.
+`npm install` to install the app.
+
+The API functionality depends on the presence of environement variable:
+`REACT_APP_UNSPLASH_ACCESS_KEY` you may set it up in a `.env` file.
 
 
 # Getting Started with Create React App
