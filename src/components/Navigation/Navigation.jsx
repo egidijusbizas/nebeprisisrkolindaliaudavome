@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function Navigation() {
   return (
-    <Navbar bg="light" expand="lg" className='sticky-top shadow-sm p-3 mb-5 bg-white rounded'>
+    <Navbar bg="light" expand="lg" className='sticky-top shadow p-3 mb-5 bg-white rounded'>
       <Container>
         <Navbar.Brand href="#home">Scroll Away</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

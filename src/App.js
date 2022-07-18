@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import { Gallery, Navbar } from './components';
+import { Gallery, Navbar, Footer } from './components';
 import { getPictures } from './api/Client';
 
 // import { Route, Routes } from 'react-router-dom';
@@ -17,7 +17,6 @@ function App() {
 
   let pageRef = useRef({});
   let picturesRef = useRef({});
-  const bottomReached = useRef();
 
   picturesRef.current = pictures
   pageRef.current = page
@@ -27,7 +26,6 @@ function App() {
     setPictures([...picturesRef.current, ...data])
   };
 
-
   const loadNextPage = () => {
       setLoadingPicturesToggle(true)
       setPage(pageRef.current + 1)
@@ -35,21 +33,8 @@ function App() {
       getPictures(pageRef.current, spreadPictures)
     };
  
-
   useEffect(() => {
     getPictures(pageRef.current, spreadPictures);
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      const entry = entries[0];
-
-      if (entry.isIntersecting) {
-        loadNextPage();
-      }
-      console.log('entry', entry);
-      console.log('entry.isIntersecting', entry.isIntersecting);
-    });
-    observer.observe(bottomReached.current);
-
   },  []);
   
   console.log(picturesRef.current, pageRef.current);
@@ -67,13 +52,7 @@ function App() {
           <Gallery pictures={picturesRef.current}/>
         </div>
 
-        <div
-          ref={bottomReached}
-          id='bottomDiv'
-          className='footer'
-          >
-          <span style={{display: loadingPicturesToggle ? "block": "none", "color":'white', textAlign:'center'}}><h1>There's more...</h1></span>
-        </div>
+        <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
     </div>
   );
 }
