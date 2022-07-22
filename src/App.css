@@ -36,3 +36,8 @@
 .sticky {
     position: sticky;
 }
+
+.content {
+    margin-top: 5rem;
+    padding-top: 5rem;
+}

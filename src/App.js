@@ -9,7 +9,9 @@ import Routing from './pages/Routing';
 const App = () => (
   <div className='App'>
     <Navigation />
-    <Routing />
+    <div className='content'>
+      <Routing />
+    </div>
   </div>
 );
 
