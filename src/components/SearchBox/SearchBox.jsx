@@ -2,9 +2,9 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-const Gallery = ({ handleSearchSubmit, handleSearchChange }) => {
+const SearchBox = ({ handleSearchSubmit, handleSearchChange }) => {
   return (
-    <div className='box sticky'>
+    <div className='box'>
       <h1>Search for images here...</h1>
       <Form onSubmit={handleSearchSubmit}>
         <Form.Group className='mb-3' controlId='searchBox'>
@@ -21,4 +21,4 @@ const Gallery = ({ handleSearchSubmit, handleSearchChange }) => {
   );
 };
 
-export default Gallery;
+export default SearchBox;

@@ -52,7 +52,7 @@ function Search() {
   // console.log('SEARCH STATE', searchTermRef.current, searchPicturesRef.current, searchPageRef.current);
 
   return (
-    <div className={searchMade ? 'container' : 'container filler'}>
+    <div className={searchMade ? 'container column fullwidth' : 'container filler'}>
       <SearchBox handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} />
 
       {searchMade ? (
