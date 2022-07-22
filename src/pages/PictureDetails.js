@@ -11,15 +11,15 @@ function PictureDetails() {
 
   return (
     <div className='container'>
-      <div className='container filler'>
-        <div className='column'>
-          <button type='button' className='btn btn-light btn-lg fullwidth' onClick={() => navigate(-1)}>
-            Back
-          </button>
+      <div className='column'>
+        <button type='button' className='btn btn-light btn-lg fullwidth' onClick={() => navigate(-1)}>
+          Back
+        </button>
 
-          <div className='gallery__item_box'>
-            <h1>Image {id}</h1>
-            <img src={urls.thumb}></img>
+        <div className='gallery__item_box gallery__item_box_capped'>
+          <h1>Image {id}</h1>
+          <img src={urls.thumb}></img>
+          <div className='fullwidth'>
             <p>Get alternate sizes</p>
             <div className='list-group'>
               {sizes.map((name, idx) => {
