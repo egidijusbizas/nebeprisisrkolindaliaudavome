@@ -38,3 +38,13 @@
     margin-top: 5rem;
     padding-top: 5rem;
 }
+
+.darkmode {
+    background-color: #434343;
+    background-image: linear-gradient(0deg, #202122 0%, #272727 100%);
+    color: white;
+}
+
+.darkmode p, h1, label {
+    color: black;
+}

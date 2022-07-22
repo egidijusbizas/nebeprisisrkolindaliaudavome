@@ -4,14 +4,15 @@ import './App.css';
 import React from 'react';
 
 import Navigation from './components/Navigation/Navigation';
-import Routing from './pages/Routing';
+import ContentWrapper from './pages/ContentWrapper';
+import { ThemeContextProvider } from './contexts/ThemeContext';
 
 const App = () => (
   <div className='App'>
-    <Navigation />
-    <div className='content'>
-      <Routing />
-    </div>
+    <ThemeContextProvider>
+      <Navigation />
+      <ContentWrapper />
+    </ThemeContextProvider>
   </div>
 );
 
