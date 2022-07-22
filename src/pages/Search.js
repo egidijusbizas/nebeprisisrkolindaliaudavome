@@ -1,7 +1,5 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import React, { useRef, useState } from 'react';
-import { Gallery, Footer } from '../components';
+import { Gallery, Footer, SearchBox } from '../components';
 import { getPicturesBySearchTerm } from '../api/Client';
 
 function Search() {
@@ -26,7 +24,6 @@ function Search() {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    console.log('submit', e);
     setSearchMade(true);
     loadNextPage();
   };
@@ -38,7 +35,7 @@ function Search() {
   const loadNextPage = () => {
     setLoadingPicturesToggle(true);
     setSearchPage(searchPageRef.current + 1);
-    console.log('Parsing page', searchPageRef.current, 'of', searchTermRef.current);
+    // console.log('Parsing page', searchPageRef.current, 'of', searchTermRef.current);
     getPicturesBySearchTerm(searchPageRef.current, searchTermRef.current, spreadPictures);
   };
 
@@ -46,20 +43,7 @@ function Search() {
 
   return (
     <div className={searchMade ? 'container' : 'container filler'}>
-      <div className='box'>
-        <h1>Search for images here...</h1>
-        <Form onSubmit={handleSearchSubmit}>
-          <Form.Group className='mb-3' controlId='searchBox'>
-            <Form.Label>Enter keywords below</Form.Label>
-            <Form.Control as='input' placeholder='Cats' onChange={handleSearchChange} />
-          </Form.Group>
-          <div className='d-grid'>
-            <Button variant='primary' type='submit'>
-              Submit
-            </Button>
-          </div>
-        </Form>
-      </div>
+      <SearchBox handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} />
 
       {searchMade ? (
         <div>

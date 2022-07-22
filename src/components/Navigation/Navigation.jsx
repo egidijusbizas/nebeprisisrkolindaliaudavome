@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 function Navigation() {
   return (
     <div className='navigation'>
-      <Navbar bg='light' expand='lg' className='sticky-top shadow p-3 mb-5 bg-white rounded'>
+      <Navbar bg='light' expand='lg' className='sticky-top shadow p-3 mb-5 bg-white rounded sticky'>
         <Container>
           <div className='navbar-brand'>
             <Navbar.Brand as={Link} to='/'>
