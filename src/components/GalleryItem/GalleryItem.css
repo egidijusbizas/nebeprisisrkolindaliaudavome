@@ -32,7 +32,7 @@
 }
 
 
-.gallery__item_box:hover {
+.gallery__item_box_hover:hover {
   transform: scale(1.05);
   cursor:pointer;
   background-color: white;

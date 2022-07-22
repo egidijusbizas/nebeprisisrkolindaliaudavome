@@ -7,7 +7,7 @@ const GalleryItem = ({ id, urls }) => {
 
   return (
     <Link to={pageUrl} state={{ urls }}>
-      <div className='gallery__item_box'>
+      <div className='gallery__item_box gallery__item_box_hover'>
         <img alt='' src={urls.thumb} />
         <div>
           <p>Picture {id}</p>
