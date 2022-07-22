@@ -17,6 +17,13 @@ function Search() {
   searchTermRef.current = searchTerm;
   searchPageRef.current = searchPage;
 
+  const resetState = () => {
+    setSearchPictures([]);
+    setSearchPage(0);
+    searchPicturesRef.current = searchPictures;
+    searchPageRef.current = searchPage;
+  };
+
   const handleSearchChange = (e) => {
     const searchTerm = e.target.value;
     setSearchTerm(searchTerm);
@@ -24,6 +31,9 @@ function Search() {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
+    if (searchMade) {
+      resetState();
+    }
     setSearchMade(true);
     loadNextPage();
   };

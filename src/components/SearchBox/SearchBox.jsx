@@ -13,7 +13,7 @@ const Gallery = ({ handleSearchSubmit, handleSearchChange }) => {
         </Form.Group>
         <div className='d-grid'>
           <Button variant='primary' type='submit'>
-            Submit
+            Search
           </Button>
         </div>
       </Form>
