@@ -1,35 +1,33 @@
-import './Footer.css'
+import './Footer.css';
 import React, { useEffect, useRef } from 'react';
 
-const Footer = ( {loadNextPage, loadingPicturesToggle} ) => {
-
+const Footer = ({ loadNextPage, loadingPicturesToggle }) => {
   const bottomReached = useRef();
 
-  useEffect(() => {
+  const loadPageOnElementIntersection = () => {
+    /* eslint-disable no-unused-vars */
     const observer = new IntersectionObserver((entries, observer) => {
       const entry = entries[0];
 
       if (entry.isIntersecting) {
         loadNextPage();
       }
-
     });
     observer.observe(bottomReached.current);
+    /* eslint-enable no-unused-vars */
+  };
 
-  },  []);
-  
+  useEffect(() => {
+    loadPageOnElementIntersection();
+  }, []);
+
   return (
-    <div
-        ref={bottomReached}
-        id='bottomDiv'
-        className='footer'
-    >
-        <span style={{display: loadingPicturesToggle ? "block": "none", "color":'white', textAlign:'center'}}>
-            <h1>There's more...</h1>
-        </span>
+    <div ref={bottomReached} id='bottomDiv' className='footer'>
+      <span className={loadingPicturesToggle ? 'footer__loading' : 'footer'}>
+        <h1>There is more...</h1>
+      </span>
     </div>
   );
-}
+};
 
-
-export default Footer
+export default Footer;

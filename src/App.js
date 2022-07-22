@@ -1,60 +1,28 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import { Gallery, Navbar, Footer } from './components';
-import { getPictures } from './api/Client';
+import React from 'react';
+// import React, { lazy } from 'react';
+// import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-// import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Navigation from './components/Navigation/Navigation';
+// import Main from './layouts/Main'; // fallback for lazy pages
+// import './static/css/main.scss'; // All of our styles
 
+// const { PUBLIC_URL } = process.env;
 
-import React, { useEffect, useRef, useState } from 'react';
+// const About = lazy(() => import('./pages/About'));
+// const NotFound = lazy(() => import('./pages/NotFound'));
+// const Home = import('./pages/Home')
 
-function App() {
+const App = () => (
+  <div className='App'>
+    <Navigation />
+    <Home />
 
-  const [page, setPage] = useState(1);
-  const [loadingPicturesToggle, setLoadingPicturesToggle] = useState(false);
-  const [pictures, setPictures] = useState([]);
-
-  let pageRef = useRef({});
-  let picturesRef = useRef({});
-
-  picturesRef.current = pictures
-  pageRef.current = page
-
-
-  const spreadPictures = (data) => {
-    setPictures([...picturesRef.current, ...data])
-  };
-
-  const loadNextPage = () => {
-      setLoadingPicturesToggle(true)
-      setPage(pageRef.current + 1)
-      console.log("Parsing page", pageRef.current)
-      getPictures(pageRef.current, spreadPictures)
-    };
- 
-  useEffect(() => {
-    getPictures(pageRef.current, spreadPictures);
-  },  []);
-  
-  console.log(picturesRef.current, pageRef.current);
-
-  return (
-    <div className="App">
-        <Navbar />
-        {/* <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/pictures/:id" element={<FullSizeItem />} />        /* </Routes> */}
-
-
-        <div>
-          {/* <p>{JSON.stringify(picturesRef.current)}</p> */}
-          <Gallery pictures={picturesRef.current}/>
-        </div>
-
-        <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
-    </div>
-  );
-}
+    {/* // <About /> */}
+  </div>
+);
 
 export default App;
