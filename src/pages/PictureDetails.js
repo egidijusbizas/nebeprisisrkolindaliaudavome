@@ -10,9 +10,9 @@ function PictureDetails() {
   const sizes = Object.keys(urls);
 
   return (
-    <div className='container'>
-      <div className='container'>
-        <button type='button' className='btn btn-light btn-lg' onClick={() => navigate(-1)}>
+    <div className='container filler'>
+      <div className='column'>
+        <button type='button' className='btn btn-light btn-lg container' onClick={() => navigate(-1)}>
           Back
         </button>
 
