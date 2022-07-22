@@ -9,7 +9,8 @@ v2 -> use typescript.
 
 v3 -> tests.
 
-
+# See it live
+[Hosted on Netlify](https://brilliant-unicorn-7fbfdc.netlify.app/).
 
 # Setup steps
 
