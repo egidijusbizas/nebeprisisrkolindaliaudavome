@@ -32,7 +32,7 @@ function Home() {
   console.log(picturesRef.current, pageRef.current);
 
   return (
-    <div className='App'>
+    <div>
       <Gallery pictures={picturesRef.current} />
       <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
     </div>

@@ -23,7 +23,7 @@ const Footer = ({ loadNextPage, loadingPicturesToggle }) => {
 
   return (
     <div ref={bottomReached} id='bottomDiv' className='footer'>
-      <span className={loadingPicturesToggle ? 'footer__loading' : 'footer'}>
+      <span className={loadingPicturesToggle ? 'footer__loading_span_active' : 'footer__loading_span'}>
         <h1>There is more...</h1>
       </span>
     </div>
