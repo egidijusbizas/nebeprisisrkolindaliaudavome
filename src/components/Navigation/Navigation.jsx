@@ -39,11 +39,11 @@ function Navigation() {
               <Nav.Link as={Link} to='/about'>
                 About
               </Nav.Link>
+              <button type='button' className={darkMode ? 'btn btn-light' : 'btn btn-dark'} onClick={toggleDarkMode}>
+                {darkMode ? 'Light Theme' : 'Dark Theme'}
+              </button>
             </Nav>
           </Navbar.Collapse>
-          <button type='button' className='btn btn-dark' onClick={toggleDarkMode}>
-            {darkMode ? 'Light Theme' : 'Dark Theme'}
-          </button>
         </Container>
       </Navbar>
     </div>
