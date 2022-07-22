@@ -5,6 +5,24 @@
 
 .container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
   }
+
+.filler {
+    height: 100vh;
+}
+
+.box {
+    align-items: start;
+    width: 50%;
+    height: fit-content;
+    background-color: white;
+    border-radius: 1%;
+    padding: 1rem;
+}
+
+.fullwidth {
+    width: 100%;
+    text-align: center;
+}

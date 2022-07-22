@@ -4,19 +4,20 @@ import Form from 'react-bootstrap/Form';
 
 function Search() {
   return (
-    <div className='container'>
-      <div>
-        <h1>Search here...</h1>
+    <div className='container filler'>
+      <div className='box'>
+        <h1>Search for images here...</h1>
         <Form>
           <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
-            <Form.Label>Example textarea</Form.Label>
-            <Form.Control as='textarea' rows={3} />
+            <Form.Label>Enter keywords below</Form.Label>
+            <Form.Control as='input' placeholder='Cats' />
           </Form.Group>
-          <Button variant='primary' type='submit'>
-            Submit
-          </Button>
+          <div className='d-grid'>
+            <Button variant='primary' type='submit'>
+              Submit
+            </Button>
+          </div>
         </Form>
-        <p>We provide images for you to scroll away.</p>
       </div>
     </div>
   );

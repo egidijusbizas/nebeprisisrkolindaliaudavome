@@ -6,7 +6,7 @@ const GalleryItem = ({ id, urls }) => {
   const pageUrl = `/picturedetails/${id}`;
 
   return (
-    <Link to={pageUrl} state={{ urls: urls }}>
+    <Link to={pageUrl} state={{ urls }}>
       <div className='gallery__item_box'>
         <img alt='' src={urls.thumb} />
         <div>
