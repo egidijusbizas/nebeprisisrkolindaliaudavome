@@ -7,10 +7,12 @@ import './Navigation.css';
 
 import { Link } from 'react-router-dom';
 
+// add darkmode here
+
 function Navigation() {
   return (
     <div className='parent navigation'>
-      <Navbar bg='light' expand='lg' className='sticky-top shadow p-3 mb-5 bg-white rounded sticky'>
+      <Navbar bg='light' expand='lg' className='sticky-top shadow p-3 mb-5 bg-white rounded'>
         <Container>
           <div className='navbar-brand'>
             <Navbar.Brand as={Link} to='/'>
