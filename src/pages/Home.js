@@ -32,7 +32,7 @@ function Home() {
   // console.log(picturesRef.current, pageRef.current);
 
   return (
-    <div>
+    <div className='container column fullwidth'>
       <Gallery pictures={picturesRef.current} />
       <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
     </div>

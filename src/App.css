@@ -1,6 +1,12 @@
+:root {
+    --bg-color: #41B0F6;
+    --shadow-color: rgba(244, 244, 244, 0.304);
+    --darkmode-bg: #22252A;
+  }
+
 .App {
-    background-color: #0093E9;
-    background-image: linear-gradient(0deg, #35b5ff 0%, #9ffff4 100%);
+    background-color: var(--bg-color);
+    background-image: linear-gradient(0deg, var(--bg-color) 0%, #9ffff4 100%);
 }
 
 .container {
@@ -15,12 +21,13 @@
 
 .box {
     align-items: start;
-    width: 50%;
+    width: 80%;
     height: fit-content;
     background-color: white;
     border-radius: 1%;
     padding: 1rem;
     margin-bottom: 2rem;
+    box-shadow: 0px 5px 1rem 0.1rem var(--shadow-color);
 }
 
 .fullwidth {
@@ -40,8 +47,8 @@
 }
 
 .darkmode {
-    background-color: #434343;
-    background-image: linear-gradient(0deg, #202122 0%, #272727 100%);
+    background-color: var(--darkmode-bg);
+    background-image: linear-gradient(0deg, var(--darkmode-bg) 100%, #272727 0%);
     color: white;
 }
 
