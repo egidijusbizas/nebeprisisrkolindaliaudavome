@@ -21,7 +21,7 @@ function Home() {
   const loadNextPage = () => {
     setLoadingPicturesToggle(true);
     setPage(pageRef.current + 1);
-    console.log('Parsing page', pageRef.current);
+    // console.log('Parsing page', pageRef.current);
     getPictures(pageRef.current, spreadPictures);
   };
 
@@ -29,10 +29,10 @@ function Home() {
     getPictures(pageRef.current, spreadPictures);
   }, []);
 
-  console.log(picturesRef.current, pageRef.current);
+  // console.log(picturesRef.current, pageRef.current);
 
   return (
-    <div>
+    <div className='container column fullwidth'>
       <Gallery pictures={picturesRef.current} />
       <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
     </div>

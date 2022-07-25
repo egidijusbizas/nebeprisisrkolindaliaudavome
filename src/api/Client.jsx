@@ -20,3 +20,12 @@ export const getPictures = async (pageNum, callback) => {
     console.log(error);
   }
 };
+
+export const getPicturesBySearchTerm = async (pageNum, searchString, callback) => {
+  try {
+    const { data } = await client.get(`search/photos?page=${pageNum}&query=${searchString}`);
+    callback(data.results);
+  } catch (error) {
+    console.log(error);
+  }
+};
