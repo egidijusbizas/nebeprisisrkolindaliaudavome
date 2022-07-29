@@ -4,9 +4,10 @@ import { useParams, useLocation, useNavigate } from 'react-router-dom';
 
 function PictureDetails() {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
+
   const location = useLocation();
-  const { urls } = location.state;
+  const { urls } = location.state as any;
   const sizes = Object.keys(urls);
 
   return (

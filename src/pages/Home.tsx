@@ -1,39 +1,25 @@
 import { Gallery, Footer } from '../components';
 import { getPictures } from '../api/Client';
+import { PicturesData } from '../types/DataTypes';
 
 import React, { useEffect, useRef, useState } from 'react';
 
 function Home(): JSX.Element {
-  
-  interface PictureUrls {
-    raw?: string,
-    full?: string, 
-    regular?: string,
-    small?: string,
-    thumb?: string,
-    s3?: string
-  }
-
-  interface PicturesData {
-    id: string,
-    urls: Array<PictureUrls>
-  }
-
   const [page, setPage] = useState<number>(1);
   const [loadingPicturesToggle, setLoadingPicturesToggle] = useState<boolean>(false);
   const [pictures, setPictures] = useState<Array<PicturesData>>([]);
 
-  let pageRef = useRef<number>(1);
-  let picturesRef = useRef<Array<PicturesData> | Array<any>>([]);
+  const pageRef = useRef<number>(1);
+  const picturesRef = useRef<Array<PicturesData> | Array<any>>([]);
 
   picturesRef.current = pictures;
   pageRef.current = page;
 
-  const spreadPictures = (data: []) => {
+  const spreadPictures = (data: Array<PicturesData>): void => {
     setPictures([...picturesRef.current, ...data]);
   };
 
-  const loadNextPage = () => {
+  const loadNextPage = (): void => {
     setLoadingPicturesToggle(true);
     setPage(pageRef.current + 1);
     // console.log('Parsing page', pageRef.current);

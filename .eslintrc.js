@@ -21,11 +21,13 @@ module.exports = {
     extends: [
       'eslint:recommended',
       'plugin:react/recommended',
+      'plugin:@typescript-eslint/recommended',
       'plugin:prettier/recommended' // Make this the last element so prettier config overrides other formatting rules
     ],
     rules: {
       'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
       'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-      "react/prop-types": "off"
+      "react/prop-types": "off",
+      '@typescript-eslint/no-var-requires': "off"
     }
   }

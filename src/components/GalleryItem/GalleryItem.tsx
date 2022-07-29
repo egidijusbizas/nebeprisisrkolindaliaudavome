@@ -1,8 +1,15 @@
 import './GalleryItem.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PictureUrls } from '../../types/DataTypes';
 
-const GalleryItem = ({ id, urls }) => {
+interface Props {
+  id: string;
+  urls: PictureUrls;
+}
+
+const GalleryItem = (props: Props) => {
+  const { id, urls } = props;
   const pageUrl = `/picturedetails/${id}`;
 
   return (

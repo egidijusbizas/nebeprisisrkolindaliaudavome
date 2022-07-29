@@ -2,7 +2,15 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-const SearchBox = ({ handleSearchSubmit, handleSearchChange }) => {
+interface Props {
+  /* eslint-disable no-unused-vars  */
+  handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSearchSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  /* eslint-enable no-unused-vars */
+}
+
+const SearchBox = (props: Props) => {
+  const { handleSearchSubmit, handleSearchChange } = props;
   return (
     <div className='box'>
       <h1>Search for images here...</h1>

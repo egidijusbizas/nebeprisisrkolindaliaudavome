@@ -6,12 +6,16 @@ interface IThemeContext {
 }
 
 const defaultState = {
-  darkMode: false,
+  darkMode: false
 };
 
 const ThemeContext = createContext<IThemeContext>(defaultState);
 
-const ThemeContextProvider = (props: any) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const ThemeContextProvider: React.FC<Props> = (props: Props) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const toggleDarkMode = (): void => {
     setDarkMode(!darkMode);
