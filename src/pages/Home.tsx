@@ -3,18 +3,33 @@ import { getPictures } from '../api/Client';
 
 import React, { useEffect, useRef, useState } from 'react';
 
-function Home(): React.FC {
-  const [page, setPage] = useState(1);
-  const [loadingPicturesToggle, setLoadingPicturesToggle] = useState(false);
-  const [pictures, setPictures] = useState([]);
+function Home(): JSX.Element {
+  
+  interface PictureUrls {
+    raw?: string,
+    full?: string, 
+    regular?: string,
+    small?: string,
+    thumb?: string,
+    s3?: string
+  }
 
-  let pageRef = useRef({});
-  let picturesRef = useRef({});
+  interface PicturesData {
+    id: string,
+    urls: Array<PictureUrls>
+  }
+
+  const [page, setPage] = useState<number>(1);
+  const [loadingPicturesToggle, setLoadingPicturesToggle] = useState<boolean>(false);
+  const [pictures, setPictures] = useState<Array<PicturesData>>([]);
+
+  let pageRef = useRef<number>(1);
+  let picturesRef = useRef<Array<PicturesData> | Array<any>>([]);
 
   picturesRef.current = pictures;
   pageRef.current = page;
 
-  const spreadPictures = (data) => {
+  const spreadPictures = (data: []) => {
     setPictures([...picturesRef.current, ...data]);
   };
 

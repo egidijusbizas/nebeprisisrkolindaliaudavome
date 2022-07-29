@@ -8,7 +8,7 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 
 import { Link } from 'react-router-dom';
 
-function Navigation(): React.FC {
+function Navigation(): JSX.Element {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
 
   <div className={darkMode ? 'content darkmode' : 'content'}></div>;
