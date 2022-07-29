@@ -11,3 +11,20 @@
 .navbar__logo {
     margin-right: 10px;
 }
+
+.centered {
+  align-items: center; 
+}
+
+.justify_end {
+  justify-content: end;
+}
+
+.flex {
+  display: flex;
+};
+
+.spacer {
+  flex-grow: 1;
+  width: 100%;
+};
