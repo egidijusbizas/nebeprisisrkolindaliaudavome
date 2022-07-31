@@ -9,7 +9,7 @@ interface Props {
   /* eslint-enable no-unused-vars */
 }
 
-const SearchBox = (props: Props) => {
+const SearchBox: React.FC<Props> = (props) => {
   const { handleSearchSubmit, handleSearchChange } = props;
   return (
     <div className='box'>

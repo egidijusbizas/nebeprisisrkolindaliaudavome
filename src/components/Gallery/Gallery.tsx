@@ -7,7 +7,7 @@ interface Props {
   pictures: Array<PicturesData>;
 }
 
-const Gallery = (props: Props) => {
+const Gallery: React.FC<Props> = (props) => {
   const { pictures } = props;
   return (
     <div className='container gallery'>

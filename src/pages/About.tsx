@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../assets/logo72.png';
 
-function About() {
+const About: React.FC = () => {
   return (
     <div className='container filler'>
       <div className='box'>
@@ -11,6 +11,6 @@ function About() {
       </div>
     </div>
   );
-}
+};
 
 export default About;

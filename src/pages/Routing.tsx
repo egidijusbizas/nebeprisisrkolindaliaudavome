@@ -8,7 +8,7 @@ import Login from './Login';
 import Register from './Register';
 import PictureDetails from './PictureDetails';
 
-const Routing = () => (
+const Routing: React.FC = () => (
   /* eslint-disable no-unused-vars */
   <Routes>
     <Route path='/' element={<Home />} />

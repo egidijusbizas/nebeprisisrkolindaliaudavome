@@ -8,7 +8,7 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 
 import { Link } from 'react-router-dom';
 
-function Navigation(): JSX.Element {
+const Navigation: React.FC = () => {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
 
   <div className={darkMode ? 'content darkmode' : 'content'}></div>;
@@ -82,6 +82,6 @@ function Navigation(): JSX.Element {
       </Navbar>
     </div>
   );
-}
+};
 
 export default Navigation;

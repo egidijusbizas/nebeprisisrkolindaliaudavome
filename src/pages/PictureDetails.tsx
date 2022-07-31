@@ -2,7 +2,7 @@ import React from 'react';
 import '../components/GalleryItem/GalleryItem.css';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 
-function PictureDetails() {
+const PictureDetails: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
@@ -36,6 +36,6 @@ function PictureDetails() {
       </div>
     </div>
   );
-}
+};
 
 export default PictureDetails;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function About() {
+const NotFound: React.FC = () => {
   return (
     <div className='container'>
       <div>
@@ -9,6 +9,6 @@ function About() {
       </div>
     </div>
   );
-}
+};
 
-export default About;
+export default NotFound;

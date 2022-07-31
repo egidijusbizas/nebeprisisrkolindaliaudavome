@@ -8,7 +8,7 @@ interface Props {
   urls: PictureUrls;
 }
 
-const GalleryItem = (props: Props) => {
+const GalleryItem: React.FC<Props> = (props) => {
   const { id, urls } = props;
   const pageUrl = `/picturedetails/${id}`;
 
@@ -18,7 +18,6 @@ const GalleryItem = (props: Props) => {
         <img alt='' src={urls.thumb} />
         <div>
           <p>Picture {id}</p>
-          <a href={urls.full}>See in full size</a>
         </div>
       </div>
     </Link>

@@ -1,10 +1,10 @@
 
 .gallery__item_box {
-  display: flex;
-  align-content: center;
+  display: flex !important;
+  align-content: center ;
   flex-direction: column;
   justify-content: center;
-  background-color: azure;
+  background-color: azure !important;
   padding: 5rem;
   margin-bottom: 5rem;
   border: 0.5rem;

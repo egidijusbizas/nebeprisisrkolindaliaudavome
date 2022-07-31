@@ -3,7 +3,7 @@ import { Gallery, Footer, SearchBox } from '../components';
 import { getPicturesBySearchTerm } from '../api/Client';
 import { PicturesData } from '../types/DataTypes';
 
-function Search() {
+const Search: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [searchPage, setSearchPage] = useState<number>(0);
   const [loadingPicturesToggle, setLoadingPicturesToggle] = useState<boolean>(false);
@@ -66,6 +66,6 @@ function Search() {
       )}
     </div>
   );
-}
+};
 
 export default Search;

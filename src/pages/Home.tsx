@@ -4,7 +4,7 @@ import { PicturesData } from '../types/DataTypes';
 
 import React, { useEffect, useRef, useState } from 'react';
 
-function Home(): JSX.Element {
+const Home: React.FC = () => {
   const [page, setPage] = useState<number>(1);
   const [loadingPicturesToggle, setLoadingPicturesToggle] = useState<boolean>(false);
   const [pictures, setPictures] = useState<Array<PicturesData>>([]);
@@ -38,6 +38,6 @@ function Home(): JSX.Element {
       <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
     </div>
   );
-}
+};
 
 export default Home;

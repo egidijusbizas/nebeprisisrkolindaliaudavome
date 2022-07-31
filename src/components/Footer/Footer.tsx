@@ -6,7 +6,7 @@ interface Props {
   loadingPicturesToggle: boolean;
 }
 
-const Footer = (props: Props) => {
+const Footer: React.FC<Props> = (props) => {
   const { loadNextPage, loadingPicturesToggle } = props;
   const bottomReached = useRef<HTMLDivElement>(document.createElement('div'));
 
