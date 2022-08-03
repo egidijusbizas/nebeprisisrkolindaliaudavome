@@ -7,9 +7,11 @@ const ContentWrapper: React.FC = () => {
   const { darkMode } = useContext(ThemeContext);
 
   return (
-    <div className={darkMode ? 'content darkmode' : 'content'}>
-      <ScrollToTop />
-      <Routing />
+    <div>
+      <div className={darkMode ? 'content darkmode' : 'content'}>
+        <ScrollToTop />
+        <Routing />
+      </div>
     </div>
   );
 };

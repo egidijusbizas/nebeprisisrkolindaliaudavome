@@ -11,8 +11,8 @@ const PictureDetails: React.FC = () => {
   const sizes = Object.keys(urls);
 
   return (
-    <div className='container'>
-      <div className='column'>
+    <div className='flexcontainer'>
+      <div className='flexcolumn'>
         <button type='button' className='btn btn-light btn-lg fullwidth' onClick={() => navigate(-1)}>
           Back
         </button>

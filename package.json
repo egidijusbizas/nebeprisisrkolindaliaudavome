@@ -1,5 +1,8 @@
 {
   "name": "scroller",
+  "sideEffects": [
+    "*.css"
+  ],
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,7 +30,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "f": "npm run format && npm run lint"
+    "f": "npm run format && npm run lint",
+    "s": "npm run build && serve build"
   },
   "eslintConfig": {
     "extends": [

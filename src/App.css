@@ -9,7 +9,7 @@
     background-image: linear-gradient(0deg, var(--bg-color) 0%, #9ffff4 100%);
 }
 
-.container {
+.flexcontainer {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -37,7 +37,7 @@
     text-align: center;
 }
 
-.column {
+.flexcolumn {
     flex-direction: column;
 }
 

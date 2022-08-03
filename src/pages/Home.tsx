@@ -33,7 +33,7 @@ const Home: React.FC = () => {
   // console.log(picturesRef.current, pageRef.current);
 
   return (
-    <div className='container column fullwidth'>
+    <div className='flexcontainer flexcolumn fullwidth'>
       <Gallery pictures={picturesRef.current} />
       <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
     </div>

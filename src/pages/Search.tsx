@@ -53,14 +53,14 @@ const Search: React.FC = () => {
   // console.log('SEARCH STATE', searchTermRef.current, searchPicturesRef.current, searchPageRef.current);
 
   return (
-    <div className={searchMade ? 'container column fullwidth' : 'container filler'}>
+    <div className={searchMade ? 'flexcontainer flexcolumn fullwidth' : 'flexcontainer filler'}>
       <SearchBox handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} />
 
       {searchMade ? (
-        <div>
+        <>
           <Gallery pictures={searchPicturesRef.current} />
           <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
-        </div>
+        </>
       ) : (
         <div></div>
       )}

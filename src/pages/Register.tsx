@@ -10,7 +10,7 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className='container filler'>
+    <div className='flexcontainer filler'>
       <RegisterBox />
     </div>
   );

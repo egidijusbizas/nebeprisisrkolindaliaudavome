@@ -10,7 +10,7 @@ interface Props {
 const Gallery: React.FC<Props> = (props) => {
   const { pictures } = props;
   return (
-    <div className='container gallery'>
+    <div className='gallery__base'>
       {pictures.map((picture: PicturesData, idx: number) => {
         return <GalleryItem key={picture.id + idx} id={picture.id} urls={picture.urls as PictureUrls} />;
       })}

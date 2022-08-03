@@ -10,7 +10,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className='container filler'>
+    <div className='flexcontainer filler'>
       <LoginBox />
     </div>
   );
