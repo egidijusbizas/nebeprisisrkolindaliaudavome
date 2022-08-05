@@ -19,7 +19,7 @@ const PictureDetails: React.FC = () => {
 
         <div className='gallery__item_box gallery__item_box_capped'>
           <h1>Image {id}</h1>
-          <img src={urls.thumb}></img>
+          {urls.thumb && <img src={urls.thumb}></img>}
           <div className='fullwidth'>
             <p>Get alternate sizes</p>
             <div className='list-group'>

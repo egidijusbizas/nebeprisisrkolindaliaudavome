@@ -3,8 +3,14 @@ import { getPictures } from '../api/Client';
 import { PicturesData } from '../types/DataTypes';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { AxiosInstance } from 'axios';
 
-const Home: React.FC = () => {
+interface Props {
+  client: AxiosInstance;
+}
+
+const Home: React.FC<Props> = (props) => {
+  const { client } = props;
   const [page, setPage] = useState<number>(1);
   const [loadingPicturesToggle, setLoadingPicturesToggle] = useState<boolean>(false);
   const [pictures, setPictures] = useState<Array<PicturesData>>([]);
@@ -16,18 +22,18 @@ const Home: React.FC = () => {
   pageRef.current = page;
 
   const spreadPictures = (data: Array<PicturesData>): void => {
-    setPictures([...picturesRef.current, ...data]);
+    data && setPictures([...picturesRef.current, ...data]);
   };
 
   const loadNextPage = (): void => {
     setLoadingPicturesToggle(true);
     setPage(pageRef.current + 1);
     // console.log('Parsing page', pageRef.current);
-    getPictures(pageRef.current, spreadPictures);
+    getPictures(client, pageRef.current, spreadPictures);
   };
 
   useEffect(() => {
-    getPictures(pageRef.current, spreadPictures);
+    getPictures(client, pageRef.current, spreadPictures);
   }, []);
 
   // console.log(picturesRef.current, pageRef.current);
@@ -35,7 +41,11 @@ const Home: React.FC = () => {
   return (
     <div className='flexcontainer flexcolumn fullwidth'>
       <Gallery pictures={picturesRef.current} />
-      <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
+      {picturesRef.current.length !== 0 ? (
+        <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
+      ) : (
+        <div className='filler'></div>
+      )}
     </div>
   );
 };

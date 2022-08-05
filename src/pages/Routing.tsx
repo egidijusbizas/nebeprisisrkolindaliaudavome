@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import React from 'react';
+import { client } from '../api/Client';
 
 import Home from './Home';
 import About from './About';
@@ -13,9 +14,9 @@ const Routing: React.FC = () => (
   /* eslint-disable no-unused-vars */
   <Routes>
     <Route path='*' element={<NotFound />} />
-    <Route path='/' element={<Home />} />
+    <Route path='/' element={<Home client={client} />} />
     <Route path='/about' element={<About />} />
-    <Route path='/search' element={<Search />} />
+    <Route path='/search' element={<Search client={client} />} />
     <Route path='/login' element={<Login />} />
     <Route path='/register' element={<Register />} />
     <Route path='/picturedetails/:id' element={<PictureDetails />} />

@@ -2,8 +2,14 @@ import React, { useRef, useState } from 'react';
 import { Gallery, Footer, SearchBox } from '../components';
 import { getPicturesBySearchTerm } from '../api/Client';
 import { PicturesData } from '../types/DataTypes';
+import { AxiosInstance } from 'axios';
 
-const Search: React.FC = () => {
+interface Props {
+  client: AxiosInstance;
+}
+
+const Search: React.FC<Props> = (props) => {
+  const { client } = props;
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [searchPage, setSearchPage] = useState<number>(0);
   const [loadingPicturesToggle, setLoadingPicturesToggle] = useState<boolean>(false);
@@ -40,14 +46,14 @@ const Search: React.FC = () => {
   };
 
   const spreadPictures = (data: Array<PicturesData>) => {
-    setSearchPictures([...searchPicturesRef.current, ...data]);
+    data && setSearchPictures([...searchPicturesRef.current, ...data]);
   };
 
   const loadNextPage = () => {
     setLoadingPicturesToggle(true);
     setSearchPage(searchPageRef.current + 1);
     // console.log('Parsing page', searchPageRef.current, 'of', searchTermRef.current);
-    getPicturesBySearchTerm(searchPageRef.current, searchTermRef.current, spreadPictures);
+    getPicturesBySearchTerm(client, searchPageRef.current, searchTermRef.current, spreadPictures);
   };
 
   // console.log('SEARCH STATE', searchTermRef.current, searchPicturesRef.current, searchPageRef.current);
@@ -59,7 +65,11 @@ const Search: React.FC = () => {
       {searchMade ? (
         <>
           <Gallery pictures={searchPicturesRef.current} />
-          <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
+          {searchPicturesRef.current.length !== 0 ? (
+            <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
+          ) : (
+            <div className='filler'></div>
+          )}
         </>
       ) : (
         <div></div>
