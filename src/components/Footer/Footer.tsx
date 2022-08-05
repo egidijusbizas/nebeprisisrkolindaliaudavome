@@ -29,9 +29,11 @@ const Footer: React.FC<Props> = (props) => {
 
   return (
     <div ref={bottomReached} id='bottomDiv' className='footer'>
-      <span className={loadingPicturesToggle ? 'footer__loading_span_active' : 'footer__loading_span'}>
-        <h1>There is more...</h1>
-      </span>
+      {loadingPicturesToggle && (
+        <div>
+          <h1>There is more...</h1>
+        </div>
+      )}
     </div>
   );
 };
