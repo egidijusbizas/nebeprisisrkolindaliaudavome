@@ -1,8 +1,14 @@
 import './Footer.css';
 import React, { useEffect, useRef } from 'react';
 
-const Footer = ({ loadNextPage, loadingPicturesToggle }) => {
-  const bottomReached = useRef();
+interface Props {
+  loadNextPage: () => void;
+  loadingPicturesToggle: boolean;
+}
+
+const Footer: React.FC<Props> = (props) => {
+  const { loadNextPage, loadingPicturesToggle } = props;
+  const bottomReached = useRef<HTMLDivElement>(document.createElement('div'));
 
   const loadPageOnElementIntersection = () => {
     /* eslint-disable no-unused-vars */

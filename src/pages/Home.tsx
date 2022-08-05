@@ -1,24 +1,25 @@
 import { Gallery, Footer } from '../components';
 import { getPictures } from '../api/Client';
+import { PicturesData } from '../types/DataTypes';
 
 import React, { useEffect, useRef, useState } from 'react';
 
-function Home() {
-  const [page, setPage] = useState(1);
-  const [loadingPicturesToggle, setLoadingPicturesToggle] = useState(false);
-  const [pictures, setPictures] = useState([]);
+const Home: React.FC = () => {
+  const [page, setPage] = useState<number>(1);
+  const [loadingPicturesToggle, setLoadingPicturesToggle] = useState<boolean>(false);
+  const [pictures, setPictures] = useState<Array<PicturesData>>([]);
 
-  let pageRef = useRef({});
-  let picturesRef = useRef({});
+  const pageRef = useRef<number>(1);
+  const picturesRef = useRef<Array<PicturesData> | Array<any>>([]);
 
   picturesRef.current = pictures;
   pageRef.current = page;
 
-  const spreadPictures = (data) => {
+  const spreadPictures = (data: Array<PicturesData>): void => {
     setPictures([...picturesRef.current, ...data]);
   };
 
-  const loadNextPage = () => {
+  const loadNextPage = (): void => {
     setLoadingPicturesToggle(true);
     setPage(pageRef.current + 1);
     // console.log('Parsing page', pageRef.current);
@@ -32,11 +33,11 @@ function Home() {
   // console.log(picturesRef.current, pageRef.current);
 
   return (
-    <div className='container column fullwidth'>
+    <div className='flexcontainer flexcolumn fullwidth'>
       <Gallery pictures={picturesRef.current} />
       <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
     </div>
   );
-}
+};
 
 export default Home;

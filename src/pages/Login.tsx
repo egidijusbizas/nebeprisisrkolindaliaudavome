@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Login() {
+const Login: React.FC = () => {
   const LoginBox = () => {
     return (
       <div className='box'>
@@ -10,10 +10,10 @@ function Login() {
   };
 
   return (
-    <div className='container filler'>
+    <div className='flexcontainer filler'>
       <LoginBox />
     </div>
   );
-}
+};
 
 export default Login;

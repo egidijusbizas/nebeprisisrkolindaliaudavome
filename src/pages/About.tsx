@@ -1,9 +1,9 @@
 import React from 'react';
 import logo from '../assets/logo72.png';
 
-function About() {
+const About: React.FC = () => {
   return (
-    <div className='container filler'>
+    <div className='flexcontainer filler'>
       <div className='box'>
         <img src={logo} alt='logo' height='72'></img>
         <h1>About us</h1>
@@ -11,6 +11,6 @@ function About() {
       </div>
     </div>
   );
-}
+};
 
 export default About;

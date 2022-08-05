@@ -1,11 +1,18 @@
 {
   "name": "scroller",
+  "sideEffects": [
+    "*.css"
+  ],
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^28.1.6",
+    "@types/node": "^18.6.1",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
     "axios": "^0.27.2",
     "bootstrap": "^5.1.3",
     "prop-types": "^15.8.1",
@@ -17,13 +24,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "format": "prettier --write \"src/**/*.{js,jsx}\" --config ./.prettierrc",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\" --config ./.prettierrc",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "f": "npm run format && npm run lint"
+    "f": "npm run format && npm run lint",
+    "s": "npm run build && serve build"
   },
   "eslintConfig": {
     "extends": [
@@ -44,13 +52,15 @@
     ]
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^5.31.0",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.1",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
   },
   "husky": {
     "hooks": {

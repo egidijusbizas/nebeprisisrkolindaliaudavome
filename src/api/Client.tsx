@@ -12,7 +12,11 @@ export const client = (() => {
   });
 })();
 
-export const getPictures = async (pageNum, callback) => {
+/* eslint-disable no-unused-vars  */
+type CallbackWithArgsAnyReturn = (...args: any[]) => any;
+/* eslint-enable no-unused-vars */
+
+export const getPictures = async (pageNum: number, callback: CallbackWithArgsAnyReturn) => {
   try {
     const { data } = await client.get(`photos?page=${pageNum}`);
     callback(data);
@@ -21,7 +25,7 @@ export const getPictures = async (pageNum, callback) => {
   }
 };
 
-export const getPicturesBySearchTerm = async (pageNum, searchString, callback) => {
+export const getPicturesBySearchTerm = async (pageNum: number, searchString: string, callback: CallbackWithArgsAnyReturn) => {
   try {
     const { data } = await client.get(`search/photos?page=${pageNum}&query=${searchString}`);
     callback(data.results);

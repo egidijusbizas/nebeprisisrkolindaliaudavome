@@ -2,16 +2,17 @@ import React from 'react';
 import '../components/GalleryItem/GalleryItem.css';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 
-function PictureDetails() {
+const PictureDetails: React.FC = () => {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
+
   const location = useLocation();
-  const { urls } = location.state;
+  const { urls } = location.state as any;
   const sizes = Object.keys(urls);
 
   return (
-    <div className='container'>
-      <div className='column'>
+    <div className='flexcontainer'>
+      <div className='flexcolumn'>
         <button type='button' className='btn btn-light btn-lg fullwidth' onClick={() => navigate(-1)}>
           Back
         </button>
@@ -35,6 +36,6 @@ function PictureDetails() {
       </div>
     </div>
   );
-}
+};
 
 export default PictureDetails;

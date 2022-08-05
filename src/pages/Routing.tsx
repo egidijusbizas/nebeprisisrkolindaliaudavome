@@ -7,10 +7,12 @@ import Search from './Search';
 import Login from './Login';
 import Register from './Register';
 import PictureDetails from './PictureDetails';
+import NotFound from './NotFound';
 
-const Routing = () => (
+const Routing: React.FC = () => (
   /* eslint-disable no-unused-vars */
   <Routes>
+    <Route path='*' element={<NotFound />} />
     <Route path='/' element={<Home />} />
     <Route path='/about' element={<About />} />
     <Route path='/search' element={<Search />} />

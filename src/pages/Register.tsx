@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Register() {
+const Register: React.FC = () => {
   const RegisterBox = () => {
     return (
       <div className='box'>
@@ -10,10 +10,10 @@ function Register() {
   };
 
   return (
-    <div className='container filler'>
+    <div className='flexcontainer filler'>
       <RegisterBox />
     </div>
   );
-}
+};
 
 export default Register;
