@@ -32,8 +32,7 @@ const Search: React.FC<Props> = (props) => {
     searchPageRef.current = searchPage;
   };
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const searchTerm = event.target.value;
+  const handleSearchChange = (searchTerm: string): void => {
     setSearchTerm(searchTerm);
   };
 
