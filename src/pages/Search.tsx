@@ -11,6 +11,7 @@ interface Props {
 const Search: React.FC<Props> = (props) => {
   const { client } = props;
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [lastSearchEntry, setLastSearchEntry] = useState<string>('');
   const [searchPage, setSearchPage] = useState<number>(0);
   const [loadingPicturesToggle, setLoadingPicturesToggle] = useState<boolean>(false);
   const [searchMade, setSearchMade] = useState<boolean>(false);
@@ -43,6 +44,7 @@ const Search: React.FC<Props> = (props) => {
     }
     setSearchMade(true);
     loadNextPage();
+    setLastSearchEntry(searchTerm);
   };
 
   const spreadPictures = (data: Array<PicturesData>) => {
@@ -60,7 +62,7 @@ const Search: React.FC<Props> = (props) => {
 
   return (
     <div className={searchMade ? 'flexcontainer flexcolumn fullwidth' : 'flexcontainer filler'}>
-      <SearchBox handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} />
+      <SearchBox handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} lastSearchEntry={lastSearchEntry} />
 
       {searchMade ? (
         <>

@@ -6,13 +6,14 @@ interface Props {
   /* eslint-disable no-unused-vars  */
   handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleSearchSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  lastSearchEntry: string;
   /* eslint-enable no-unused-vars */
 }
 
 const SearchBox: React.FC<Props> = (props) => {
-  const { handleSearchSubmit, handleSearchChange } = props;
+  const { handleSearchSubmit, handleSearchChange, lastSearchEntry } = props;
   const searchRef = useRef<HTMLInputElement>(document.createElement('input'));
-  const disableToggle = !searchRef.current.value;
+  const disableToggle = !searchRef.current.value || searchRef.current.value === lastSearchEntry;
 
   return (
     <div className='box'>

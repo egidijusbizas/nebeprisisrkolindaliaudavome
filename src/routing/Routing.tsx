@@ -2,13 +2,13 @@ import { Route, Routes } from 'react-router-dom';
 import React from 'react';
 import { client } from '../api/Client';
 
-import Home from './Home';
-import About from './About';
-import Search from './Search';
-import Login from './Login';
-import Register from './Register';
-import PictureDetails from './PictureDetails';
-import NotFound from './NotFound';
+import Home from '../pages/Home';
+import About from '../pages/About';
+import Search from '../pages/Search';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
+import PictureDetails from '../pages/PictureDetails';
+import NotFound from '../pages/NotFound';
 
 const Routing: React.FC = () => (
   /* eslint-disable no-unused-vars */
