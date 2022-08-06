@@ -18,24 +18,21 @@ describe('Search button', () => {
     expect(button).toBeDisabled();
   });
 
-  // TODO: fix tests
-  //   test('is enabled upon typing test', () => {
-  //     render(<SearchBox handleSearchChange={() => null} handleSearchSubmit={() => null} lastSearchEntry={''} />);
-  //     const button = screen.getByRole('button');
-  //     const input = screen.getByRole('textbox');
-  //     fireEvent.change(input, { target: { value: 'test' } });
-  //     expect(input).toHaveValue('test');
-  //     expect(button).not.toBeDisabled();
-  //   });
+  test('is enabled upon typing test', () => {
+    render(<SearchBox handleSearchChange={() => null} handleSearchSubmit={() => null} lastSearchEntry={''} />);
+    const button = screen.getByRole('button');
+    const input = screen.getByRole('textbox');
+    fireEvent.change(input, { target: { value: 'test' } });
+    expect(input).toHaveValue('test');
+    expect(button).not.toBeDisabled();
+  });
 
-  //   test('is enabled when current input does not match last input', () => {
-  //     const useRef = mockUseRef({ refFunction: jest.fn() });
-  //     render(<SearchBox handleSearchChange={() => null} handleSearchSubmit={() => null} lastSearchEntry={'test'} />);
-
-  //     const button = screen.getByRole('button');
-  //     const input = screen.getByRole('textbox');
-  //     fireEvent.change(input, { target: { value: 'test2' } });
-  //     expect(input).toHaveValue('test2');
-  //     expect(button).not.toBeDisabled();
-  //   });
+  test('is enabled when current input does not match last input', () => {
+    render(<SearchBox handleSearchChange={() => null} handleSearchSubmit={() => null} lastSearchEntry={'test'} />);
+    const button = screen.getByRole('button');
+    const input = screen.getByRole('textbox');
+    fireEvent.change(input, { target: { value: 'test2' } });
+    expect(input).toHaveValue('test2');
+    expect(button).not.toBeDisabled();
+  });
 });
