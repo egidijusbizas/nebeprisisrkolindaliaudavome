@@ -2,12 +2,12 @@ import './Footer.css';
 import React, { useEffect, useRef } from 'react';
 
 interface Props {
-  loadNextPage: () => void;
+  setNextPage: () => void;
   loadingPicturesToggle: boolean;
 }
 
 const Footer: React.FC<Props> = (props) => {
-  const { loadNextPage, loadingPicturesToggle } = props;
+  const { setNextPage, loadingPicturesToggle } = props;
   const bottomReached = useRef<HTMLDivElement>(document.createElement('div'));
 
   const loadPageOnElementIntersection = () => {
@@ -16,7 +16,7 @@ const Footer: React.FC<Props> = (props) => {
       const entry = entries[0];
 
       if (entry.isIntersecting) {
-        loadNextPage();
+        setNextPage();
       }
     });
     observer.observe(bottomReached.current);

@@ -24,6 +24,7 @@ export const getPictures = async (client: AxiosInstance, pageNum: number, callba
     callback(data);
   } catch (error) {
     console.log(error);
+    callback(false);
   }
 };
 
@@ -38,5 +39,6 @@ export const getPicturesBySearchTerm = async (
     callback(data.results);
   } catch (error) {
     console.log(error);
+    callback(false);
   }
 };

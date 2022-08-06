@@ -1,4 +1,3 @@
-
 .gallery__item_box {
   align-content: center;
   background-color: azure;
@@ -10,12 +9,11 @@
   justify-content: center;
   margin-bottom: 5rem;
   padding: 5rem;
-  }
-
+}
 
 .gallery__item_box_gallery {
-    padding: 2rem;
-  }
+  padding: 2rem;
+}
 
 .gallery__item_box img {
   border-radius: 2%;
@@ -25,14 +23,12 @@
 .gallery__item_box_capped img {
   border-radius: 2%;
   margin: 5px;
-  max-height:400px;
+  max-height: 400px;
 }
-
 
 .gallery__item_box p {
   margin-top: 5px;
 }
-
 
 .gallery__item_box a {
   color: grey;
@@ -43,10 +39,9 @@
   text-decoration: underline;
 }
 
-
 .gallery__item_box_hover:hover {
   background-color: white;
   box-shadow: 0 5px 20px 2px;
-  cursor:pointer;
+  cursor: pointer;
   transform: scale(1.05);
 }
