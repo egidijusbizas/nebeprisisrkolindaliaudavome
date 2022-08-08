@@ -28,7 +28,8 @@ const Footer: React.FC<Props> = (props) => {
   }, []);
 
   return (
-    <div ref={bottomReached} id='bottomDiv' className='footer'>
+    <div id='bottomDiv' className='footer'>
+      <div id='intersectionRef' ref={bottomReached} className={loadingPicturesToggle ? 'hidden' : ''}></div>
       {loadingPicturesToggle && (
         <div>
           <h1>There is more...</h1>

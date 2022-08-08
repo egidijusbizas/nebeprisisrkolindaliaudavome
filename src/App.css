@@ -3,6 +3,7 @@
   --shadow-color: rgba(244, 244, 244, 0.304);
   --darkmode-bg: #22252a;
   --box-width: 80%;
+  --warning-color: #ff6c6c;
 }
 
 .App {
@@ -56,4 +57,16 @@
 h1,
 label {
   color: black;
+}
+
+.box__warning {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 5px solid var(--warning-color);
+  box-shadow: 0px 5px 1rem 0.1rem var(--warning-color);
+}
+
+.hidden {
+  display: none;
 }

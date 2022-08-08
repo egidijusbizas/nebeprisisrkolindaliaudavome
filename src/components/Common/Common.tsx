@@ -7,7 +7,7 @@ interface ErrorProps {
 export const ErrorBox: React.FC<ErrorProps> = (props) => {
   const { error } = props;
   return (
-    <div className='box'>
+    <div className='box box__warning'>
       <h1>{error}</h1>
     </div>
   );

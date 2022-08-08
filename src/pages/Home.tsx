@@ -46,11 +46,11 @@ const Home: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    getPictures(client, pageRef.current, getDataOrError);
+    !error && getPictures(client, pageRef.current, getDataOrError);
   }, []);
 
   useEffect(() => {
-    pageRef.current > 1 && loadNextPage();
+    !error && pageRef.current > 1 && loadNextPage();
   }, [pageRef.current]);
 
   // console.log(pageRef.current, picturesRef.current);

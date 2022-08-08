@@ -74,7 +74,7 @@ const Search: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    searchMade && loadNextPage();
+    searchMade && !error && loadNextPage();
   }, [searchPageRef.current]);
   // console.log('SEARCH STATE', searchTermRef.current, searchPicturesRef.current, searchPageRef.current);
 
@@ -95,7 +95,8 @@ const Search: React.FC<Props> = (props) => {
     <div className={searchMade ? 'flexcontainer flexcolumn fullwidth' : 'flexcontainer filler'}>
       <SearchBox handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} lastSearchEntry={lastSearchEntry} />
 
-      {searchMade && error ? <ErrorBox error={error} /> : searchMade && <SearchGallery />}
+      {searchMade && searchPicturesRef.current.length === 0 && error ? <ErrorBox error={error} /> : searchMade && <SearchGallery />}
+      <div className='filler'>{searchMade && searchPicturesRef.current.length !== 0 && error && <ErrorBox error={error} />}</div>
     </div>
   );
 };
