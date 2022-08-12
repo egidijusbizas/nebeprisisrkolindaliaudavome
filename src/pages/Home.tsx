@@ -16,7 +16,7 @@ const Home: React.FC<Props> = (props) => {
   const [error, setError] = useState<string>('');
   const [loadingPicturesToggle, setLoadingPicturesToggle] = useState<boolean>(false);
   const [pictures, setPictures] = useState<Array<PicturesData>>([]);
-
+  const [noHomeData, setNoHomeData] = useState<boolean>(false);
   const pageRef = useRef<number>(1);
   const picturesRef = useRef<Array<PicturesData> | Array<any>>([]);
 
@@ -24,7 +24,7 @@ const Home: React.FC<Props> = (props) => {
   pageRef.current = page;
 
   const getDataOrError = (data: Array<PicturesData>): void => {
-    if (!data) {
+    if (typeof data === 'boolean' && !data) {
       setError('Service unavailable, try again later...');
     } else {
       spreadPictures(data);
@@ -32,6 +32,9 @@ const Home: React.FC<Props> = (props) => {
   };
 
   const spreadPictures = (data: Array<PicturesData>): void => {
+    if (Array.isArray(data) && !data.length) {
+      setNoHomeData(true);
+    }
     data && setPictures([...picturesRef.current, ...data]);
     setLoadingPicturesToggle(false);
   };
@@ -56,8 +59,16 @@ const Home: React.FC<Props> = (props) => {
   // console.log(pageRef.current, picturesRef.current);
   return (
     <FlexContainer>
-      {error ? <ErrorBox error={error} /> : <Gallery pictures={picturesRef.current} firstLoad={pageRef.current === 1} />}
-      {picturesRef.current.length !== 0 ? <Footer setNextPage={setNextPage} loadingPicturesToggle={loadingPicturesToggle} /> : <Filler />}
+      {error ? (
+        <ErrorBox error={error} />
+      ) : (
+        <Gallery pictures={picturesRef.current} firstLoad={pageRef.current === 1} noData={noHomeData} />
+      )}
+      {picturesRef.current.length !== 0 ? (
+        <Footer setNextPage={setNextPage} loadingPicturesToggle={loadingPicturesToggle} noData={noHomeData} />
+      ) : (
+        <Filler />
+      )}
     </FlexContainer>
   );
 };

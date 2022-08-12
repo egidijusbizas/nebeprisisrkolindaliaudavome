@@ -18,7 +18,7 @@ const Search: React.FC<Props> = (props) => {
   const [loadingPicturesToggle, setLoadingPicturesToggle] = useState<boolean>(false);
   const [searchMade, setSearchMade] = useState<boolean>(false);
   const [searchPictures, setSearchPictures] = useState<Array<PicturesData>>([]);
-
+  const [noData, setNoData] = useState<boolean>(false);
   const searchPageRef = useRef<number>(1);
   const searchTermRef = useRef<string>('');
   const searchPicturesRef = useRef<Array<PicturesData> | Array<any>>([]);
@@ -31,6 +31,7 @@ const Search: React.FC<Props> = (props) => {
     setSearchPictures([]);
     setSearchPage(1);
     setError('');
+    setNoData(false);
     searchPicturesRef.current = searchPictures;
     searchPageRef.current = searchPage;
   };
@@ -50,7 +51,7 @@ const Search: React.FC<Props> = (props) => {
   };
 
   const getDataOrError = (data: Array<PicturesData>): void => {
-    if (!data) {
+    if (typeof data === 'boolean' && !data) {
       setError('Service unavailable, try again later...');
       console.log(error);
     } else {
@@ -59,6 +60,9 @@ const Search: React.FC<Props> = (props) => {
   };
 
   const spreadPictures = (data: Array<PicturesData>) => {
+    if (Array.isArray(data) && !data.length) {
+      setNoData(true);
+    }
     data && setSearchPictures([...searchPicturesRef.current, ...data]);
     setLoadingPicturesToggle(false);
   };
@@ -81,9 +85,9 @@ const Search: React.FC<Props> = (props) => {
   const SearchGallery = () => {
     return (
       <>
-        <Gallery pictures={searchPicturesRef.current} firstLoad={searchPageRef.current === 1} />
+        <Gallery pictures={searchPicturesRef.current} firstLoad={searchPageRef.current === 1} noData={noData} />
         {searchPicturesRef.current.length !== 0 ? (
-          <Footer setNextPage={setNextPage} loadingPicturesToggle={loadingPicturesToggle} />
+          <Footer setNextPage={setNextPage} loadingPicturesToggle={loadingPicturesToggle} noData={noData} />
         ) : (
           <Filler />
         )}

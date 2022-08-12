@@ -4,10 +4,11 @@ import React, { useEffect, useRef } from 'react';
 interface Props {
   setNextPage: () => void;
   loadingPicturesToggle: boolean;
+  noData: boolean;
 }
 
 const Footer: React.FC<Props> = (props) => {
-  const { setNextPage, loadingPicturesToggle } = props;
+  const { setNextPage, loadingPicturesToggle, noData } = props;
   const bottomReached = useRef<HTMLDivElement>(document.createElement('div'));
 
   const loadPageOnElementIntersection = () => {
@@ -29,8 +30,8 @@ const Footer: React.FC<Props> = (props) => {
 
   return (
     <div id='bottomDiv' className='footer'>
-      <div id='intersectionRef' ref={bottomReached} className={loadingPicturesToggle ? 'hidden' : ''}></div>
-      {loadingPicturesToggle && (
+      <div id='intersectionRef' ref={bottomReached} className={noData || loadingPicturesToggle ? 'hidden' : ''}></div>
+      {!noData && loadingPicturesToggle && (
         <div>
           <h1>There is more...</h1>
         </div>
