@@ -9,5 +9,5 @@ export interface PictureUrls {
 
 export interface PicturesData {
   id: string;
-  urls: Array<PictureUrls>;
+  urls: PictureUrls;
 }

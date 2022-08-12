@@ -1,42 +1,28 @@
 import { Gallery, Footer } from '../components';
-import { getPictures } from '../api/Client';
+import { FlexContainer, Filler } from '../components/Common/Common';
 import { PicturesData } from '../types/DataTypes';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
-const Home: React.FC = () => {
-  const [page, setPage] = useState<number>(1);
-  const [loadingPicturesToggle, setLoadingPicturesToggle] = useState<boolean>(false);
-  const [pictures, setPictures] = useState<Array<PicturesData>>([]);
+interface Props {
+  pictures: Array<PicturesData>;
+  firstLoad: boolean;
+  noData: boolean;
+  setNextPage: () => void;
+  loadingPicturesToggle: boolean;
+  error: string;
+}
 
-  const pageRef = useRef<number>(1);
-  const picturesRef = useRef<Array<PicturesData> | Array<any>>([]);
-
-  picturesRef.current = pictures;
-  pageRef.current = page;
-
-  const spreadPictures = (data: Array<PicturesData>): void => {
-    setPictures([...picturesRef.current, ...data]);
-  };
-
-  const loadNextPage = (): void => {
-    setLoadingPicturesToggle(true);
-    setPage(pageRef.current + 1);
-    // console.log('Parsing page', pageRef.current);
-    getPictures(pageRef.current, spreadPictures);
-  };
-
-  useEffect(() => {
-    getPictures(pageRef.current, spreadPictures);
-  }, []);
-
-  // console.log(picturesRef.current, pageRef.current);
+const Home: React.FC<Props> = (props) => {
+  const { pictures, firstLoad, noData, setNextPage, loadingPicturesToggle, error } = props;
 
   return (
-    <div className='flexcontainer flexcolumn fullwidth'>
-      <Gallery pictures={picturesRef.current} />
-      <Footer loadNextPage={loadNextPage} loadingPicturesToggle={loadingPicturesToggle} />
-    </div>
+    <FlexContainer>
+      <Gallery pictures={pictures} firstLoad={firstLoad} noData={noData} error={error} />
+      <Filler>
+        <Footer setNextPage={setNextPage} loadingPicturesToggle={loadingPicturesToggle} noData={noData} />
+      </Filler>
+    </FlexContainer>
   );
 };
 

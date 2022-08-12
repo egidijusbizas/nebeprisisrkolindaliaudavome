@@ -1,30 +1,16 @@
 .parent {
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: auto;
-    width: 100%;
-    z-index: 1;
-  }
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  z-index: 1;
+}
 
 .navbar__logo {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .centered {
-  align-items: center; 
+  align-items: center;
 }
-
-.justify_end {
-  justify-content: end;
-}
-
-.flex {
-  display: flex;
-};
-
-.spacer {
-  flex-grow: 1;
-  width: 100%;
-};

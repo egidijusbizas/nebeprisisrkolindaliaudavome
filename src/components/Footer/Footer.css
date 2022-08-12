@@ -1,13 +1,8 @@
 .footer {
-    height:200px;
+  height: 200px;
 }
 
 .footer h1 {
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
 }
-
-.footer__loading_span {
-    display: none;
-}
-
