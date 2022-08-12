@@ -34,11 +34,7 @@ const Search: React.FC<Props> = (props) => {
     return (
       <>
         <Gallery pictures={pictures} firstLoad={firstLoad} noData={noData} error={error} />
-        {pictures.length !== 0 ? (
-          <Footer setNextPage={setNextPage} loadingPicturesToggle={loadingPicturesToggle} noData={noData} />
-        ) : (
-          <Filler />
-        )}
+        {pictures.length !== 0 && <Footer setNextPage={setNextPage} loadingPicturesToggle={loadingPicturesToggle} noData={noData} />}
       </>
     );
   };
