@@ -1,7 +1,7 @@
 import React from 'react';
 import { Gallery, Footer, SearchBox } from '../components';
 import { PicturesData } from '../types/DataTypes';
-import { ErrorBox, Filler } from '../components/Common/Common';
+import { Filler } from '../components/Common/Common';
 
 interface Props {
   lastSearchEntry: string;
@@ -46,9 +46,8 @@ const Search: React.FC<Props> = (props) => {
   return (
     <div className={searchMade ? 'flexcontainer flexcolumn fullwidth' : 'flexcontainer filler'}>
       <SearchBox handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} lastSearchEntry={lastSearchEntry} />
-
-      {searchMade && pictures.length === 0 && error ? <ErrorBox error={error} /> : searchMade && <SearchGallery />}
-      <div className='filler'>{searchMade && pictures.length !== 0 && error && <ErrorBox error={error} />}</div>
+      {searchMade && <SearchGallery />}
+      <Filler />
     </div>
   );
 };
