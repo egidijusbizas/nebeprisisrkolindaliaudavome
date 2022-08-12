@@ -19,9 +19,8 @@ const Home: React.FC<Props> = (props) => {
   return (
     <FlexContainer>
       <Gallery pictures={pictures} firstLoad={firstLoad} noData={noData} error={error} />
-      <Filler>
-        <Footer setNextPage={setNextPage} loadingPicturesToggle={loadingPicturesToggle} noData={noData} />
-      </Filler>
+      <Footer setNextPage={setNextPage} loadingPicturesToggle={loadingPicturesToggle} noData={noData} />
+      <Filler />
     </FlexContainer>
   );
 };

@@ -43,7 +43,7 @@ const HomeContainer: React.FC<Props> = (props) => {
   };
 
   const loadNextPage = (): void => {
-    setLoadingPicturesToggle(true);
+    setLoadingPicturesToggle(() => true);
     getPictures(client, pageRef.current, getDataOrError);
   };
 

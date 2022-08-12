@@ -34,13 +34,13 @@ const Search: React.FC<Props> = (props) => {
     return (
       <>
         <Gallery pictures={pictures} firstLoad={firstLoad} noData={noData} error={error} />
-        {pictures.length !== 0 && <Footer setNextPage={setNextPage} loadingPicturesToggle={loadingPicturesToggle} noData={noData} />}
+        <Footer setNextPage={setNextPage} loadingPicturesToggle={loadingPicturesToggle} noData={noData} />
       </>
     );
   };
 
   return (
-    <div className={searchMade ? 'flexcontainer flexcolumn fullwidth' : 'flexcontainer filler'}>
+    <div className={searchMade ? 'flexcontainer flexcolumn fullwidth' : 'flexcontainer'}>
       <SearchBox handleSearchSubmit={handleSearchSubmit} handleSearchChange={handleSearchChange} lastSearchEntry={lastSearchEntry} />
       {searchMade && <SearchGallery />}
       <Filler />

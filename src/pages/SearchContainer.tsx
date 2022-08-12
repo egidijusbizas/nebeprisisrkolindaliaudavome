@@ -71,7 +71,7 @@ const SearchContainer: React.FC<Props> = (props) => {
   };
 
   const loadNextPage = () => {
-    setLoadingPicturesToggle(true);
+    setLoadingPicturesToggle(() => true);
     getPicturesBySearchTerm(client, searchPageRef.current, searchTermRef.current, getDataOrError);
     // console.log('Parsing page', searchPageRef.current, 'of', searchTermRef.current);
   };
